@@ -6,9 +6,28 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.15.0",
+    "axios": "^1.6.7",
+    "body-parser": "^1.20.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "cors": "^2.8.5",
+    "d3": "^7.8.5",
+    "express": "^4.18.3",
+    "firebase": "^10.8.1",
+    "knex": "^3.1.0",
+    "knex-logger": "^0.1.0",
+    "lucide-react": "^0.352.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1",
+    "react-router-dom": "^6.22.2",
     "react-scripts": "5.0.1",
+    "sequelize": "^6.37.1",
+    "sequelize-cli": "^6.6.2",
+    "sqlite3": "^5.1.7",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }
