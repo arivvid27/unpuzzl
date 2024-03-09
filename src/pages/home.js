@@ -1,21 +1,18 @@
-// pages/Home.js
+// Home.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
-const containerStyle = "max-w-md mx-auto my-20 p-6 bg-white shadow-md rounded";
 
-const headerStyle = "text-xl font-bold mb-4";
-
-function Home() {
+const Home = () => {
   return (
-    <div className={containerStyle}>
-      <h2 className={headerStyle}>Welcome to our App</h2>
-      <p className="mb-4">This is supposed to be a tracker for special need kids.
-      Come back later :)</p>
-      <Link to="/signin" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Sign In</Link>
-      <p className="mt-4">Don't have an account? <Link to="/signup" className="text-blue-500 hover:underline">Sign Up</Link></p>
+    <div className="bg-white">
+      <NavBar />
+      <div className="flex flex-col items-center justify-center h-screen">
+        <h1 className="text-4xl font-bold mb-4 text-black">Welcome to Your App</h1>
+        <p className="text-lg text-black">This is the launch page of your application.</p>
+      </div>
     </div>
   );
-}
+};
 
 export default Home;
