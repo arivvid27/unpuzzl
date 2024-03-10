@@ -5,6 +5,7 @@ import Dashboard from './pages/dashboard';
 import SignIn from './pages/auth/signin';
 import SignUp from './pages/auth/signup';
 import Home from './pages/home';
+import NotFound from './pages/notfound';
 import { AuthProvider } from './contexts/AuthContexts';
 
 import './App.css';
@@ -18,6 +19,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
       </AuthProvider>
     </Router>
