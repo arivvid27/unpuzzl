@@ -34,17 +34,17 @@ function SignIn() {
       <div className={containerStyle}>
         <h2 className="text-xl font-bold mb-4">Sign In</h2>
         <form className={formStyle} onSubmit={handleFormSubmit}>
-          <input type="email" placeholder="Email" className={inputStyle + ' border-gray-300 rounded px-3 py-2'} />
+          {/* <input type="email" placeholder="Email" className={inputStyle + ' border-gray-300 rounded px-3 py-2'} />
           <input type="password" placeholder="Password" className={inputStyle + ' border-gray-300 rounded px-3 py-2'} />
-          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none transform transition duration-300 hover:-translate-y-1 hover:shadow-md">
-            Sign In
-          </button>
+          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none transform transition duration-300 hover:-translate-y-1 hover:shadow-md"> */}
+            {/* Sign In */}
+          {/* </button> */}
 
-          <div className="flex items-center mb-4">
+          {/* <div className="flex items-center mb-4">
             <div className="flex-grow border-b border-gray-400"></div>
             <div className="mx-2 text-gray-500">or</div>
             <div className="flex-grow border-b border-gray-400"></div>
-          </div>
+          </div> */}
 
           <button
             onClick={handleSignInWithGoogle} // Attach handleSignInWithGoogle to the click event
