@@ -50,9 +50,9 @@
 // export default Dashboard;
 
 import Orders from '../../components/Orders/Orders';
-import Statistics from '../../components/Statistics/Statistics';
+import Statistics from '../../components/Stats/Stats';
 import { cardsData, groupNumber } from '../../data';
-import css from './Dashboard.module.css';
+import css from './dashboard.css';
 const Dashboard = () => {
   return <div className={css.container}>
 
