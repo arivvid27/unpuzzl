@@ -7,8 +7,9 @@ import logo from '../../logotrans.png';
 const Sidebar = () => {
   return (
     <div className="w-64 bg-gray-800 text-white min-h-screen flex flex-col">
-      <img src={logo} alt="logo" className="h-16 mx-auto mt-4" />
-
+        <NavLink to="/">
+          <img src={logo} alt="Your App Logo" className="h-16 cursor-pointer" />
+        </NavLink>
       <div className="flex-grow">
         <nav className="mt-8">
           <NavLink 
@@ -38,21 +39,21 @@ const Sidebar = () => {
             className={({ isActive }) => 
               `flex items-center p-4 ${isActive ? 'bg-gray-700' : 'hover:bg-gray-700'}`
             } 
-            title="Trello Board"
+            title="Todo"
           >
             <FaTasks size={30} />
-            <span className="ml-4">Trello Board</span>
+            <span className="ml-4">Todo</span>
           </NavLink>
 
           <NavLink 
-            to="/users" 
+            to="/dataentry" 
             className={({ isActive }) => 
               `flex items-center p-4 ${isActive ? 'bg-gray-700' : 'hover:bg-gray-700'}`
             } 
-            title="Users"
+            title="Enter Data"
           >
             <AiOutlineTable size={30} />
-            <span className="ml-4">Users</span>
+            <span className="ml-4">Enter Data</span>
           </NavLink>
         </nav>
       </div>
