@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; // import signOut
 import { FaUserCircle } from 'react-icons/fa'; // React Icon for User
 import Logo from '../unpuzzl.png';
 
 const NavBar = () => {
   const location = useLocation();
+  const history = useHistory(); // To programmatically redirect after sign-out
   const [user, setUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -30,6 +31,17 @@ const NavBar = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  // Handle Sign Out
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth); // Sign out the user
+      setUser(null); // Reset user state to null
+      history.push('/signin'); // Redirect to the Sign-In page after signing out
+    } catch (error) {
+      console.error('Error signing out:', error); // Log out errors if any
+    }
+  };
+
   // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -44,9 +56,12 @@ const NavBar = () => {
   return (
     <nav className="text-black py-4 px-6 shadow-lg rounded-full bg-white mt-2">
       <div className="flex justify-between items-center">
+        {/* App Logo */}
         <Link to="/">
           <img src={Logo} alt="Your App Logo" className="h-8 cursor-pointer" />
         </Link>
+        
+        {/* Nav Items */}
         {!isAuthRoute() && (
           <div className="flex gap-4 items-center">
             {user ? (
@@ -62,14 +77,15 @@ const NavBar = () => {
                 </Link>
 
                 {/* User Icon with Dropdown */}
-                <div className="relative">
+                <div className="relative flex items-center">
                   <button
                     onClick={toggleDropdown}
-                    className="text-gray-800 hover:text-gray-600 focus:outline-none dropdown"
+                    className="text-gray-800 hover:text-gray-600 focus:outline-none dropdown flex items-center ml-3"
                   >
                     <FaUserCircle size={30} />
                   </button>
 
+                  {/* Dropdown Menu */}
                   {dropdownOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
                       <div className="py-2">
@@ -86,9 +102,7 @@ const NavBar = () => {
                           Settings
                         </Link>
                         <button
-                          onClick={() => {
-                            auth.signOut();
-                          }}
+                          onClick={handleSignOut}
                           className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         >
                           Sign Out
@@ -100,7 +114,7 @@ const NavBar = () => {
               </>
             ) : (
               <>
-                {/* If the user is not signed in, show Sign In and Sign Up buttons */}
+                {/* Sign In and Sign Up buttons for non-authenticated users */}
                 <Link
                   to="/signin"
                   className="text-lg font-medium transition duration-300 hover:text-gray-300 focus:outline-none no-underline"
