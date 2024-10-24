@@ -3,7 +3,7 @@ import ReactECharts from "echarts-for-react";
 import * as echarts from "echarts";
 
 
-const OrdersPieChart = () => {
+const BehaviorPieChart = () => {
     const option = {
         color: [
             new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -70,10 +70,10 @@ const OrdersPieChart = () => {
                     }
                 },
                 data: [
-                    { value: 2190, name: "Search Engine" },
-                    { value: 735, name: "Direct" },
-                    { value: 580, name: "Email" },
-                    { value: 484, name: "Union Ads" },
+                    { value: 5, name: "Positive Reinforcement" },
+                    { value: 3, name: "Task Completion" },
+                    { value: 2, name: "Class Participation" },
+                    { value: 8, name: "Social Interactions" },
                 ]
             }
         ]
@@ -84,4 +84,4 @@ const OrdersPieChart = () => {
     )
 }
 
-export default OrdersPieChart
+export default BehaviorPieChart

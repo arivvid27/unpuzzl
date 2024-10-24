@@ -1,103 +1,75 @@
-// // pages/Dashboard.js
-// import React, { useState } from 'react';
-// // import { Link } from 'react-router-dom';
-// import { useAuth } from '../contexts/AuthContexts';
-// import { FaUser } from 'react-icons/fa';
-
-// const sidebarStyle = "w-64 bg-gray-900 text-white p-4";
-
-// const profileStyle = "flex items-center mb-4";
-
-// const profileNameStyle = "ml-2 overflow-hidden whitespace-nowrap overflow-ellipsis";
-
-// const dropdownStyle = "absolute top-14 left-64 bg-gray-900 text-white p-2 rounded";
-
-// const dropdownItemStyle = "mb-1";
-
-// function Dashboard() {
-//   const { currentUser } = useAuth();
-//   const [showDropdown, setShowDropdown] = useState(false);
-
-//   const toggleDropdown = () => {
-//     setShowDropdown(!showDropdown);
-//   };
-
-//   return (
-//     <div className="flex">
-//       <div className={sidebarStyle}>
-//         <div className={profileStyle}>
-//           <FaUser size={24} />
-//           {currentUser && (
-//             <span className={profileNameStyle} onClick={toggleDropdown}>
-//               {currentUser.displayName || currentUser.email}
-//             </span>
-//           )}
-//         </div>
-//         {showDropdown && (
-//           <div className={dropdownStyle}>
-//             <div className={dropdownItemStyle}>Settings</div>
-//             <div className={dropdownItemStyle}>Logout</div>
-//           </div>
-//         )}
-//       </div>
-//       <div>
-//         {/* Main content */}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Dashboard;
-
 import Orders from '../../components/Orders/Orders';
 import Statistics from '../../components/Stats/Stats';
-import { cardsData, groupNumber } from '../../data';
-import css from './dashboard.css';
-const Dashboard = () => {
-  return <div className={css.container}>
+import Sidebar from '../../components/Sidebar/Sidebar'; // Import your Sidebar
+import { groupNumber } from '../../data';
 
-    {/* left side */}
-    <div className={css.dashboard}>
-      
-      <div className={`${css.dashboardHead} theme-container`}>
-        <div className={css.head}>
-          <span>Dashboard</span>
-          <div className={css.durationButton}>
-            <select>
-              <option value="">1 week</option>
-              <option value="">1 month</option>
-              <option value="">1 year</option>
-            </select>
+const cardsData = [
+  {
+    title: "Total Logged Behaviors",
+    change: 5,
+    amount: 30,
+  },
+  {
+    title: "Learning Milestones Achieved",
+    change: 3,
+    amount: 12,
+  },
+  {
+    title: "Average Daily Engagement",
+    change: 1,
+    amount: 45,
+  },
+  {
+    title: "Pending Observations",
+    change: -2,
+    amount: 8,
+  },
+];
+
+const Dashboard = () => {
+  return (
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Sidebar */}
+      <Sidebar />
+
+      <div className="flex-1 p-6">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-2xl font-bold text-gray-800">Learning & Behavior Dashboard</h1>
+            <div>
+              <select className="border border-gray-300 rounded-md p-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-300">
+                <option value="">1 week</option>
+                <option value="">1 month</option>
+                <option value="">1 year</option>
+              </select>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cardsData.map((card, index) => (
+              <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
+                <div className="flex justify-between items-center mb-2">
+                  <h2 className="text-lg font-semibold text-gray-800">{card.title}</h2>
+                  <span className={`font-medium ${card.change >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                    {card.change >= 0 ? `+${card.change}` : card.change}
+                  </span>
+                </div>
+
+                <div className="text-3xl font-bold text-gray-900">
+                  <span className="text-gray-600">{card.amount}</span>
+                  <span>{card.title.includes("Average") ? " min" : ""}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-          <div className={css.cards}>
-            {
-              cardsData.map((card, index)=> (
-                <div className={css.card}>
-                  <div className={css.cardHead}>
-                    <span>{card.title}</span>
-                    <span>+{card.change}</span>
-                  </div>
-
-                  <div className={css.cardAmount}>
-                    <span>$</span>
-                    <span>{groupNumber(card.amount)}</span>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
+        
+        <div className="flex flex-col space-y-6">
+          <Statistics />
+          <Orders />
+        </div>
       </div>
-
-
-
-      <Statistics/>
-
     </div>
-
-
-      <Orders/>
-  </div>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

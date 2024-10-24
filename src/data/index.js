@@ -2,106 +2,102 @@ import moment from "moment/moment";
 
 export const cardsData = [
   {
-    title: "Revenue",
-    change: 24,
-    amount: 42056,
+    title: "Total Logged Behaviors",
+    change: 5, // Example change
+    amount: 30, // Total behaviors logged
   },
   {
-    title: "Orders",
-    change: -14,
-    amount: 52125.03,
+    title: "Learning Milestones Achieved",
+    change: 3,
+    amount: 12,
   },
   {
-    title: "Expenses",
-    change: 18,
-    amount: 1216.5,
+    title: "Average Daily Engagement (min)",
+    change: 1,
+    amount: 45, // Average engagement time
   },
   {
-    title: "Profit",
-    change: 12,
-    amount: 10125.0,
+    title: "Pending Observations",
+    change: -2,
+    amount: 8,
   },
 ];
 
-export const ordersData = [
+export const behaviorData = [
   {
-    name: "Skatebnoard",
-    type: "Illustration",
-    items: 58,
-    change: 290,
+    name: "Positive Reinforcement",
+    type: "Behavior",
+    items: 15,
+    change: 5,
   },
   {
-    name: "Language courses",
-    type: "Illustration",
+    name: "Task Completion",
+    type: "Behavior",
     items: 12,
-    change: 72
+    change: 3,
   },
   {
-    name: "Office Collaboration",
-    type: "Illustration",
-    items: 7,
-    change: 70
+    name: "Class Participation",
+    type: "Behavior",
+    items: 10,
+    change: 2,
   },
   {
-    name: "Robot",
-    type: "Illustration",
-    items: 21,
-    change: 15
-  }
-]
+    name: "Social Interactions",
+    type: "Behavior",
+    items: 20,
+    change: 8,
+  },
+];
 
-
-//* get the value in group number format
+//* Get the value in group number format
 export const groupNumber = (number) => {
-  return parseFloat(number.toFixed(2)).toLocaleString("en", {
+  return number.toLocaleString("en", {
     useGrouping: true,
   });
 };
 
-
-//* calendar Events
-let eventGuid = 0
-let todayStr = moment().format("YYYY-MM-DD")  // YYYY-MM-DD of today
+//* Calendar Events
+let eventGuid = 0;
+let todayStr = moment().format("YYYY-MM-DD"); // YYYY-MM-DD of today
 export const INITIAL_EVENTS = [
   {
     id: createEventId(),
-    title: 'Lunch Pary',
+    title: 'Behavior Review Meeting',
     start: todayStr + 'T09:00:00',
-
   },
   {
     id: createEventId(),
-    title: 'Timed event',
-    start: moment(todayStr).add(1, "days").format("YYYY-MM-DD") + 'T16:00:00'
+    title: 'Learning Assessment',
+    start: moment(todayStr).add(1, "days").format("YYYY-MM-DD") + 'T10:00:00',
   },
   {
     id: createEventId(),
-    title: "Head Meetup",
-    start: moment(todayStr).add(2, "days").format("YYYY-MM-DD") + 'T20:00:00'
+    title: "Parent-Teacher Conference",
+    start: moment(todayStr).add(2, "days").format("YYYY-MM-DD") + 'T15:00:00',
   },
   {
     id: createEventId(),
-    title: "VC Meeting",
-    start: moment(todayStr).add(3, "days").format("YYYY-MM-DD") + 'T09:00:00'
+    title: "Weekly Progress Check",
+    start: moment(todayStr).add(3, "days").format("YYYY-MM-DD") + 'T14:00:00',
   },
   {
     id: createEventId(),
-    title: "Payment Shedules",
-    start: moment(todayStr).add(5, "days").format("YYYY-MM-DD") + 'T13:00:00'
+    title: "Behavior Intervention Plan Review",
+    start: moment(todayStr).add(5, "days").format("YYYY-MM-DD") + 'T13:00:00',
   },
   {
     id: createEventId(),
-    title: "VC Meeting",
-    start: moment(todayStr).add(6, "days").format("YYYY-MM-DD") + 'T13:00:00'
+    title: "Monthly Behavior Analysis",
+    start: moment(todayStr).add(6, "days").format("YYYY-MM-DD") + 'T11:00:00',
   },
-]
+];
 
 export function createEventId() {
-  return String(eventGuid++)
+  return String(eventGuid++);
 }
 
-
-// * tasks
+// * Tasks
 export const boardData = {
   columns: [
     {
@@ -110,15 +106,15 @@ export const boardData = {
       cards: [
         {
           id: 1,
-          title: "Database Setup",
-          description: "Firebase Integration"
+          title: "Review Learning Plans",
+          description: "Evaluate current learning strategies.",
         },
         {
           id: 2,
-          title: "Data Flow",
-          description: "Setup Diagram with other developers"
+          title: "Behavior Logging",
+          description: "Ensure accurate logging of student behaviors.",
         },
-      ]
+      ],
     },
     {
       id: 2,
@@ -126,10 +122,10 @@ export const boardData = {
       cards: [
         {
           id: 9,
-          title: "Data Table Page",
-          description: "Server side Pagination",
-        }
-      ]
+          title: "Analyze Engagement Data",
+          description: "Look for trends in student engagement.",
+        },
+      ],
     },
     {
       id: 3,
@@ -137,15 +133,10 @@ export const boardData = {
       cards: [
         {
           id: 10,
-          title: "Full Calendar Extension",
-          description: "Make new events and store in global states"
+          title: "Update Behavior Tracking System",
+          description: "Implement new features based on feedback.",
         },
-        {
-          id: 11,
-          title: "Custom Kanban Board",
-          description: "Setup react-kanban dep within Dashboard as seperate page"
-        }
-      ]
+      ],
     },
     {
       id: 4,
@@ -153,100 +144,10 @@ export const boardData = {
       cards: [
         {
           id: 12,
-          title: "Vite Server Setup",
-          description: "Configure required modules and starters"
+          title: "Training on Behavior Strategies",
+          description: "Complete staff training on new strategies.",
         },
-        {
-          id: 13,
-          title: "Modular structre",
-          description: "Write css in form of modules to reduce the naming conflicts"
-        }
-      ]
-    }
-  ]
-}
-
-
-// * user table data
-export const userData = [
-  {
-    name: {
-      firstName: 'John',
-      lastName: 'Doe',
+      ],
     },
-    address: '261 Erdman Ford',
-    city: 'East Daphne',
-    state: 'Kentucky',
-  },
-  {
-    name: {
-      firstName: 'Jane',
-      lastName: 'Doe',
-    },
-    address: '769 Dominic Grove',
-    city: 'Columbus',
-    state: 'Ohio',
-  },
-  {
-    name: {
-      firstName: 'Joe',
-      lastName: 'Doe',
-    },
-    address: '566 Brakus Inlet',
-    city: 'South Linda',
-    state: 'West Virginia',
-  },
-  {
-    name: {
-      firstName: 'Kevin',
-      lastName: 'Vandy',
-    },
-    address: '722 Emie Stream',
-    city: 'Lincoln',
-    state: 'Nebraska',
-  },
-  {
-    name: {
-      firstName: 'Joshua',
-      lastName: 'Rolluffs',
-    },
-    address: '32188 Larkin Turnpike',
-    city: 'Charleston',
-    state: 'South Carolina',
-  }, {
-    name: {
-      firstName: 'Jane',
-      lastName: 'Doe',
-    },
-    address: '769 Dominic Grove',
-    city: 'Columbus',
-    state: 'Ohio',
-  },
-  {
-    name: {
-      firstName: 'Joe',
-      lastName: 'Doe',
-    },
-    address: '566 Brakus Inlet',
-    city: 'South Linda',
-    state: 'West Virginia',
-  },
-  {
-    name: {
-      firstName: 'Kevin',
-      lastName: 'Vandy',
-    },
-    address: '722 Emie Stream',
-    city: 'Lincoln',
-    state: 'Nebraska',
-  },
-  {
-    name: {
-      firstName: 'Joshua',
-      lastName: 'Rolluffs',
-    },
-    address: '32188 Larkin Turnpike',
-    city: 'Charleston',
-    state: 'South Carolina',
-  },
-]
+  ],
+};

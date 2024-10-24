@@ -7,6 +7,7 @@ import SignUp from './pages/auth/signup';
 import Home from './pages/home';
 import NotFound from './pages/notfound';
 import { AuthProvider } from './contexts/AuthContexts';
+import DataEntryPage from './pages/DataEntry/DataEntryPage';
 
 import './App.css';
 
@@ -15,11 +16,12 @@ function App() {
     <Router>
       <AuthProvider>
           <Routes>
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
+            <Route caseSensitive path="/signin" element={<SignIn />} />
+            <Route caseSensitive path="/signup" element={<SignUp />} />
+            <Route caseSensitive path="/dashboard" element={<Dashboard />} />
+            <Route caseSensitive path="/dataentry" component={<DataEntryPage />} />
+            <Route caseSensitive path="/" element={<Home />} />
+            <Route caseSensitive path="*" element={<NotFound />} />
           </Routes>
       </AuthProvider>
     </Router>
