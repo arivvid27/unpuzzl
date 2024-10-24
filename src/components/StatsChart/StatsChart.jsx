@@ -76,7 +76,7 @@ const StatisticsChart = () => {
                     focus: "series",
                 },
                 showSymbol: false,
-                data: [28000, 19000, 32000, 18000, 41000, 30000, 26000]
+                data: [5, 3, 2, 9, 3, 5, 7]
             }
         ]
     }

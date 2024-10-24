@@ -14,24 +14,24 @@ const Statistics = () => {
             <BsArrowUpShort size={24} />
           </div>
           <div>
-            <span className="block text-gray-700">Top item this month</span>
-            <span className="font-semibold">Office comps</span>
+            <span className="block text-gray-700">Top Behavior This Month</span>
+            <span className="font-semibold">Compliance</span>
           </div>
         </div>
 
         <div className="flex flex-col justify-between p-4 bg-white rounded-lg shadow">
-          <span className="text-gray-700">Items</span>
-          <span className="text-lg font-bold">${groupNumber(455)}</span>
+          <span className="text-gray-700">Entries</span>
+          <span className="text-lg font-bold">{groupNumber(57)}</span>
         </div>
 
         <div className="flex flex-col justify-between p-4 bg-white rounded-lg shadow">
-          <span className="text-gray-700">Profit</span>
-          <span className="text-lg font-bold">${groupNumber(370000)}</span>
+          <span className="text-gray-700">Minutes Spent</span>
+          <span className="text-lg font-bold">{groupNumber(45)} Min.</span>
         </div>
 
         <div className="flex flex-col justify-between p-4 bg-white rounded-lg shadow">
           <span className="text-gray-700">Daily Average</span>
-          <span className="text-lg font-bold">${groupNumber(2000)}</span>
+          <span className="text-lg font-bold">{groupNumber(20)} Min.</span>
         </div>
       </div>
 
