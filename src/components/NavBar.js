@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // useNavigate instead of useHistory
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; // import signOut
 import { FaUserCircle } from 'react-icons/fa'; // React Icon for User
 import Logo from '../unpuzzl.png';
 
 const NavBar = () => {
   const location = useLocation();
-  const history = useHistory(); // To programmatically redirect after sign-out
+  const navigate = useNavigate(); // useNavigate instead of useHistory
   const [user, setUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -36,7 +36,7 @@ const NavBar = () => {
     try {
       await signOut(auth); // Sign out the user
       setUser(null); // Reset user state to null
-      history.push('/signin'); // Redirect to the Sign-In page after signing out
+      navigate('/signin'); // Redirect to the Sign-In page after signing out using navigate
     } catch (error) {
       console.error('Error signing out:', error); // Log out errors if any
     }
