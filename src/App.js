@@ -19,7 +19,7 @@ function App() {
             <Route caseSensitive path="/signin" element={<SignIn />} />
             <Route caseSensitive path="/signup" element={<SignUp />} />
             <Route caseSensitive path="/dashboard" element={<Dashboard />} />
-            <Route caseSensitive path="/dataentry" component={<DataEntryPage />} />
+            <Route caseSensitive path="/dataentry" element={<DataEntryPage />} />
             <Route caseSensitive path="/" element={<Home />} />
             <Route caseSensitive path="*" element={<NotFound />} />
           </Routes>

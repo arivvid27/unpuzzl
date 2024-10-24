@@ -12,7 +12,7 @@ const Sidebar = () => {
       <div className="flex-grow">
         <nav className="mt-8">
           <NavLink 
-            to="/" // Change to the correct path for the dashboard
+            to="/dashboard"
             className={({ isActive }) => 
               `flex items-center p-4 ${isActive ? 'bg-gray-700' : 'hover:bg-gray-700'}`
             } 
